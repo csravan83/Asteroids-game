@@ -474,6 +474,7 @@ Ship = function () {
         }
 ||||||| merged common ancestors
         this.delayBeforeBullet = 10;
+<<<<<<< HEAD
         for (var i = 0; i < this.bullets.length; i++) {
           if (!this.bullets[i].visible) {
             SFX.laser();
@@ -492,6 +493,26 @@ Ship = function () {
         }
 =======
         this.delayBeforeBullet = 10;
+        this.shoot();
+>>>>>>> coins
+||||||| merged common ancestors
+        for (var i = 0; i < this.bullets.length; i++) {
+          if (!this.bullets[i].visible) {
+            SFX.laser();
+            var bullet = this.bullets[i];
+            var rad = ((this.rot-90) * Math.PI)/180;
+            var vectorx = Math.cos(rad);
+            var vectory = Math.sin(rad);
+            // move to the nose of the ship
+            bullet.x = this.x + vectorx * 4;
+            bullet.y = this.y + vectory * 4;
+            bullet.vel.x = 6 * vectorx + this.vel.x;
+            bullet.vel.y = 6 * vectory + this.vel.y;
+            bullet.visible = true;
+            break;
+          }
+        }
+=======
         this.shoot();
 >>>>>>> coins
       }
